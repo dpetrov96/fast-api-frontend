@@ -121,23 +121,7 @@ export const UpdateProfileForm: React.FC<UpdateProfileFormProps> = ({ onSuccess 
             >
               Update Profile
             </Button>
-            
-            <Button
-              type="button"
-              variant="outline"
-              onClick={handleReset}
-              disabled={isSubmitting || updateProfileMutation.isPending}
-              className="flex-1"
-            >
-              Reset
-            </Button>
-          </div>
-
-          {/* Help Text */}
-          <div className="text-xs text-muted-foreground space-y-1">
-            <p>• Only changed fields will be updated</p>
-            <p>• Email cannot be changed through this form</p>
-            <p>• Changes take effect immediately</p>
+          
           </div>
         </form>
       </CardContent>

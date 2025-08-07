@@ -8,19 +8,11 @@ import { ChangePasswordForm } from '@/components/profile/ChangePasswordForm';
 import { useAuth } from '@/context/AuthContext';
 import { useProfile } from '@/hooks/useProtected';
 import { formatDateTime } from '@/lib/utils';
-import { User, Mail, Calendar, Shield, RefreshCw } from 'lucide-react';
+import { User, Mail, Calendar, Shield } from 'lucide-react';
 
 export default function ProfilePage() {
-  const { user, refreshToken } = useAuth();
+  const { user } = useAuth();
   const { data: profileData, isLoading, error, refetch } = useProfile();
-
-  const handleRefreshToken = async () => {
-    try {
-      await refreshToken();
-    } catch (error) {
-      // Error is handled by the mutation
-    }
-  };
 
   if (isLoading) {
     return (
@@ -152,68 +144,6 @@ export default function ProfilePage() {
 
       {/* Change Password Form */}
       <ChangePasswordForm />
-
-      {/* Account Actions */}
-      <Card>
-        <CardHeader>
-          <CardTitle>Account Actions</CardTitle>
-          <CardDescription>
-            Additional account management options
-          </CardDescription>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          <div className="flex flex-col sm:flex-row gap-4">
-            <Button onClick={handleRefreshToken} variant="outline">
-              <RefreshCw className="h-4 w-4 mr-2" />
-              Refresh Token
-            </Button>
-          </div>
-          
-          <div className="text-sm text-gray-600 dark:text-gray-400">
-            <p>
-              • Your JWT token expires every 30 minutes for security
-            </p>
-            <p>
-              • Use "Refresh Token" to extend your session
-            </p>
-            <p>
-              • Profile and password changes are now available above
-            </p>
-          </div>
-        </CardContent>
-      </Card>
-
-      {/* API Information */}
-      <Card>
-        <CardHeader>
-          <CardTitle>API Information</CardTitle>
-          <CardDescription>
-            Technical details about your API access
-          </CardDescription>
-        </CardHeader>
-        <CardContent className="space-y-3">
-          <div>
-            <label className="text-sm font-medium text-gray-600 dark:text-gray-400">
-              API Base URL
-            </label>
-            <p className="text-sm font-mono">
-              {process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}
-            </p>
-          </div>
-          
-          <div>
-            <label className="text-sm font-medium text-gray-600 dark:text-gray-400">
-              Available Endpoints
-            </label>
-            <div className="text-sm space-y-1">
-              <p>• GET /auth/me - Current user information</p>
-              <p>• POST /auth/refresh - Refresh access token</p>
-              <p>• GET /protected/profile - Detailed profile</p>
-              <p>• GET /protected/dashboard - Dashboard data</p>
-            </div>
-          </div>
-        </CardContent>
-      </Card>
     </div>
   );
 }

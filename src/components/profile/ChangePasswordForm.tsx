@@ -213,43 +213,8 @@ export const ChangePasswordForm: React.FC<ChangePasswordFormProps> = ({ onSucces
             >
               Change Password
             </Button>
-            
-            <Button
-              type="button"
-              variant="outline"
-              onClick={() => reset()}
-              disabled={isSubmitting || changePasswordMutation.isPending}
-              className="flex-1"
-            >
-              Clear Form
-            </Button>
           </div>
 
-          {/* Development Mode Notice */}
-          <div className="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 p-3 rounded-md">
-            <div className="text-sm text-yellow-800 dark:text-yellow-200">
-              <p className="font-medium mb-1">⚠️ Development Mode:</p>
-              <ul className="text-xs space-y-1">
-                <li>• Password changes are currently simulated</li>
-                <li>• Both old and new passwords will work after "change"</li>
-                <li>• Add <code className="bg-yellow-200 dark:bg-yellow-800 px-1 rounded">SUPABASE_SERVICE_ROLE_KEY</code> to .env for real changes</li>
-                <li>• See <code className="bg-yellow-200 dark:bg-yellow-800 px-1 rounded">SETUP_SERVICE_KEY.md</code> for instructions</li>
-              </ul>
-            </div>
-          </div>
-
-          {/* Security Notes */}
-          <div className="bg-blue-50 dark:bg-blue-900/20 p-3 rounded-md">
-            <div className="text-sm text-blue-800 dark:text-blue-200">
-              <p className="font-medium mb-1">🔒 Security Tips:</p>
-              <ul className="text-xs space-y-1">
-                <li>• Use a unique password you don't use elsewhere</li>
-                <li>• Consider using a password manager</li>
-                <li>• You'll stay logged in after changing your password</li>
-                <li>• This will not affect other logged-in sessions</li>
-              </ul>
-            </div>
-          </div>
         </form>
       </CardContent>
     </Card>

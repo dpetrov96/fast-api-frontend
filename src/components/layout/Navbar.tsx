@@ -10,17 +10,11 @@ import { Button } from '@/components/ui/Button';
 export const Navbar: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { user, logout } = useAuth();
-  const router = useRouter();
 
   const handleLogout = () => {
     logout();
     setIsMobileMenuOpen(false);
   };
-
-  const navigation = [
-    { name: 'Dashboard', href: '/dashboard' },
-    { name: 'Profile', href: '/profile' },
-  ];
 
   return (
     <nav className="bg-white dark:bg-gray-800 shadow-sm border-b">
@@ -34,19 +28,6 @@ export const Navbar: React.FC = () => {
                 FastAPI Auth
               </span>
             </Link>
-
-            {/* Desktop navigation */}
-            <div className="hidden md:ml-8 md:flex md:space-x-8">
-              {navigation.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className="text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 text-sm font-medium transition-colors"
-                >
-                  {item.name}
-                </Link>
-              ))}
-            </div>
           </div>
 
           {/* User menu */}
@@ -59,21 +40,17 @@ export const Navbar: React.FC = () => {
               </span>
             </div>
 
-            {/* Desktop buttons */}
-            <div className="hidden md:flex md:items-center md:space-x-2">
+            <div className="hidden md:flex md:items-center md:space-x-2 dark:text-white">
               <Link href="/profile">
                 <Button variant="ghost" size="sm">
-                  <Settings className="h-4 w-4 mr-2" />
                   Settings
                 </Button>
               </Link>
               <Button variant="ghost" size="sm" onClick={handleLogout}>
-                <LogOut className="h-4 w-4 mr-2" />
                 Logout
               </Button>
             </div>
 
-            {/* Mobile menu button */}
             <div className="md:hidden">
               <Button
                 variant="ghost"
@@ -102,33 +79,20 @@ export const Navbar: React.FC = () => {
                 </span>
               </div>
 
-              {/* Navigation links */}
-              {navigation.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className="block px-3 py-2 text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-md text-sm font-medium"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {item.name}
-                </Link>
-              ))}
 
               {/* Action buttons */}
               <div className="border-t border-gray-200 dark:border-gray-700 pt-2">
                 <Link
                   href="/profile"
-                  className="block px-3 py-2 text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-md text-sm font-medium"
+                  className="block px-3 py-2 text-gray-700 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-md text-sm font-medium"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  <Settings className="h-4 w-4 inline mr-2" />
                   Settings
                 </Link>
                 <button
                   onClick={handleLogout}
-                  className="block w-full text-left px-3 py-2 text-gray-700 dark:text-gray-200 hover:text-red-600 dark:hover:text-red-400 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-md text-sm font-medium"
+                  className="block w-full text-left px-3 py-2 text-gray-700 dark:text-white hover:text-red-600 dark:hover:text-red-400 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-md text-sm font-medium"
                 >
-                  <LogOut className="h-4 w-4 inline mr-2" />
                   Logout
                 </button>
               </div>
