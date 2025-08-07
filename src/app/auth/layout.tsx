@@ -4,7 +4,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { Toaster } from 'react-hot-toast';
 import { AuthProvider } from '@/context/AuthContext';
-import { RateLimitNotice } from '@/components/ui/RateLimitNotice';
+
 import { queryClient } from '@/lib/react-query';
 
 export default function AuthLayout({
@@ -17,7 +17,6 @@ export default function AuthLayout({
       <AuthProvider>
         <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 flex items-center justify-center p-4">
           <div className="w-full max-w-md">
-            <RateLimitNotice />
             {children}
           </div>
         </div>
