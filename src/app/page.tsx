@@ -32,10 +32,7 @@ export default function HomePage() {
                 FastAPI Auth
               </span>
             </div>
-            <div className="flex items-center space-x-4">
-              <Link href="/test-auth">
-                <Button variant="ghost" size="sm">🧪 Test</Button>
-              </Link>
+            <div className="flex items-center space-x-4 dark:text-white">
               <Link href="/auth/login">
                 <Button variant="ghost">Sign In</Button>
               </Link>
