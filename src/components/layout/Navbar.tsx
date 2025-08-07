@@ -41,7 +41,7 @@ export const Navbar: React.FC = () => {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white px-3 py-2 text-sm font-medium transition-colors"
+                  className="text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 text-sm font-medium transition-colors"
                 >
                   {item.name}
                 </Link>
@@ -54,7 +54,7 @@ export const Navbar: React.FC = () => {
             {/* User info */}
             <div className="hidden md:flex md:items-center md:space-x-2">
               <User className="h-5 w-5 text-gray-500" />
-              <span className="text-sm text-gray-700 dark:text-gray-300">
+              <span className="text-sm text-gray-800 dark:text-gray-200">
                 {user?.full_name || user?.email}
               </span>
             </div>
@@ -97,7 +97,7 @@ export const Navbar: React.FC = () => {
               {/* User info */}
               <div className="flex items-center space-x-2 px-3 py-2">
                 <User className="h-5 w-5 text-gray-500" />
-                <span className="text-sm text-gray-700 dark:text-gray-300">
+                <span className="text-sm text-gray-800 dark:text-gray-200">
                   {user?.full_name || user?.email}
                 </span>
               </div>
@@ -107,7 +107,7 @@ export const Navbar: React.FC = () => {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="block px-3 py-2 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-700 rounded-md text-sm font-medium"
+                  className="block px-3 py-2 text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-md text-sm font-medium"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {item.name}
@@ -118,7 +118,7 @@ export const Navbar: React.FC = () => {
               <div className="border-t border-gray-200 dark:border-gray-700 pt-2">
                 <Link
                   href="/profile"
-                  className="block px-3 py-2 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-700 rounded-md text-sm font-medium"
+                  className="block px-3 py-2 text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-md text-sm font-medium"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   <Settings className="h-4 w-4 inline mr-2" />
@@ -126,7 +126,7 @@ export const Navbar: React.FC = () => {
                 </Link>
                 <button
                   onClick={handleLogout}
-                  className="block w-full text-left px-3 py-2 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-700 rounded-md text-sm font-medium"
+                  className="block w-full text-left px-3 py-2 text-gray-700 dark:text-gray-200 hover:text-red-600 dark:hover:text-red-400 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-md text-sm font-medium"
                 >
                   <LogOut className="h-4 w-4 inline mr-2" />
                   Logout
