@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/Card';
 import { apiClient } from '@/lib/api';
+import { AuthResponse } from '@/types/auth';
 
 export default function TestAuthPage() {
   const [email, setEmail] = useState('test@example.com');
@@ -19,7 +20,7 @@ export default function TestAuthPage() {
     try {
       console.log('🧪 Testing login with:', { email, password });
       
-      const response = await apiClient.post('/test/login-mock', {
+      const response = await apiClient.post<AuthResponse>('/test/login-mock', {
         email,
         password
       });
